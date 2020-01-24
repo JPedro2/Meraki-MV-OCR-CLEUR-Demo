@@ -20,13 +20,13 @@ def face_data():
     sentence2 = ""
     # Set main title sentence based on fatigue level
     if fatigue < 50:
-        sentence1 = "You're a Machine"
-    elif fatigue < 60:
-        sentence1 = "You're Looking Fresh"
+        sentence1 = "You're a Machine! 🤨 🤘🏽"
+    elif fatigue < 600:
+        sentence1 = "You're Looking Fresh! 😊 👊🏽"
     elif fatigue < 70:
-        sentence1 = "You're Looking Ok"
+        sentence1 = "You're Looking Ok! 😕 👌🏽"
     elif fatigue < 80:
-        sentence1 = "You are Exhausted"
+        sentence1 = "You are Exhausted! 🥱 👎🏽"
 
     # Set subtitle based on fatigue level and emotion
     if fatigue < 50:
