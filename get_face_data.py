@@ -19,17 +19,17 @@ def face_data():
     sentence1 = ""
     sentence2 = ""
     # Set main title sentence based on fatigue level
-    if fatigue < 36:
+    if fatigue < 50:
         sentence1 = "You're a Machine"
-    elif fatigue < 51:
+    elif fatigue < 60:
         sentence1 = "You're Looking Fresh"
-    elif fatigue < 66:
+    elif fatigue < 70:
         sentence1 = "You're Looking Ok"
-    elif fatigue < 101:
+    elif fatigue < 80:
         sentence1 = "You are Exhausted"
 
     # Set subtitle based on fatigue level and emotion
-    if fatigue < 36:
+    if fatigue < 50:
         if emotion == "happy":
             sentence2 = (
                 "and happy, energized and totally ready to hit some more sessions!"
@@ -49,7 +49,7 @@ def face_data():
         elif emotion == "fear":
             sentence2 = "but scared?? Relax. We’re all friends here."
 
-    elif fatigue < 51:
+    elif fatigue < 60:
         if emotion == "happy":
             sentence2 = (
                 "and happy. Obviously enjoying the event! Hit some more sessions."
@@ -69,7 +69,7 @@ def face_data():
         elif emotion == "fear":
             sentence2 = "but don’t be scared though. You are quite safe."
 
-    elif fatigue < 66:
+    elif fatigue < 70:
         if emotion == "happy":
             sentence2 = (
                 "and happy! Maybe slow down a bit though. Don’t push it too hard."
@@ -89,7 +89,7 @@ def face_data():
         elif emotion == "fear":
             sentence2 = "but don’t be scared though. You are quite safe."
 
-    elif fatigue < 101:
+    elif fatigue < 80:
         if emotion == "happy":
             sentence2 = "but happy. This conference is great, but you need to slow down. Grab some sugar and caffeine!"
         elif emotion == "sad":
