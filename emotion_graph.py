@@ -29,56 +29,56 @@ def emotion_graph():
     cur = con.cursor()
     cur.execute("SELECT emotion FROM mood_data;")
     rows = cur.fetchall()
-    print(rows)
+    # print(rows)
 
     # Get total Happy people
     cur = con.cursor()
     cur.execute("SELECT count(*) FROM mood_data Where emotion ='HAPPY';")
     rows = cur.fetchall()
     happyTotal = rows[0][0]
-    print("Total Happy: " + str(happyTotal))
+    # print("Total Happy: " + str(happyTotal))
 
     # Get total sad people
     cur = con.cursor()
     cur.execute("SELECT count(*) FROM mood_data Where emotion ='SAD';")
     rows = cur.fetchall()
     sadTotal = rows[0][0]
-    print("Total sad: " + str(sadTotal))
+    # print("Total sad: " + str(sadTotal))
 
     # Get total ANGRY people
     cur = con.cursor()
     cur.execute("SELECT count(*) FROM mood_data Where emotion ='ANGRY';")
     rows = cur.fetchall()
     angryTotal = rows[0][0]
-    print("Total ANGRY: " + str(angryTotal))
+    # print("Total ANGRY: " + str(angryTotal))
 
     # Get total CONFUSED people
     cur = con.cursor()
     cur.execute("SELECT count(*) FROM mood_data Where emotion ='CONFUSED';")
     rows = cur.fetchall()
     confusedTotal = rows[0][0]
-    print("Total CONFUSED: " + str(confusedTotal))
+    # print("Total CONFUSED: " + str(confusedTotal))
 
     # Get total DISGUSTED people
     cur = con.cursor()
     cur.execute("SELECT count(*) FROM mood_data Where emotion ='DISGUSTED';")
     rows = cur.fetchall()
     disgustedTotal = rows[0][0]
-    print("Total DISGUSTED: " + str(disgustedTotal))
+    # print("Total DISGUSTED: " + str(disgustedTotal))
 
     # Get total SURPRISED people
     cur = con.cursor()
     cur.execute("SELECT count(*) FROM mood_data Where emotion ='SURPRISED';")
     rows = cur.fetchall()
     surprisedTotal = rows[0][0]
-    print("Total SURPRISED: " + str(surprisedTotal))
+    # print("Total SURPRISED: " + str(surprisedTotal))
 
     # Get total calm people
     cur = con.cursor()
     cur.execute("SELECT count(*) FROM mood_data Where emotion ='CALM';")
     rows = cur.fetchall()
     calmTotal = rows[0][0]
-    print("Total calm: " + str(calmTotal))
+    # print("Total calm: " + str(calmTotal))
 
     # Get total FEAR people
     cur = con.cursor()
@@ -88,7 +88,7 @@ def emotion_graph():
 
     con.close()
 
-    print("Total FEAR: " + str(fearTotal))
+    # print("Total FEAR: " + str(fearTotal))
 
     data = [
         {"emotion": "Happy", "total": happyTotal},

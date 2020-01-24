@@ -1,9 +1,11 @@
 from flask import request, Flask
 import Meraki_AWS_Script
-import env
+import credentials
 import get_face_data
 import run_webex_capture
 import emotion_graph
+import aggregate_totals
+import fatigue_graph
 
 flask_app = Flask(__name__)
 
@@ -31,8 +33,8 @@ def face_data():
 
 
 @flask_app.route("/run-webex-capture", methods=["GET"])
-def run_webex_capture():
-    result = run_webex_capture.run_webex_capture()
+def run_webex_captures():
+    run_webex_capture.run_webex_capture()
     return ("", 204)
 
 
@@ -42,8 +44,22 @@ def emotions_graph():
     return result
 
 
+@flask_app.route("/fatigue-graph", methods=["GET"])
+def fatigues_graph():
+    result = fatigue_graph.fatigue_graph()
+    return result
+
+
+@flask_app.route("/aggregate-totals", methods=["GET"])
+def aggregete_total():
+    result = aggregate_totals.aggregate_totals()
+    return result
+
+
 if __name__ == "__main__":
     flask_app.run(
-        host=env.FLASK["Flask_HOST"], port=env.FLASK["Flask_PORT"], debug=False
+        host=credentials.FLASK["Flask_HOST"],
+        port=credentials.FLASK["Flask_PORT"],
+        debug=False,
     )
 

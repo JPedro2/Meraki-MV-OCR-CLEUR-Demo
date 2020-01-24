@@ -41,8 +41,8 @@ def snapshot_meraki_camera():
     ):
         ssl._create_default_https_context = ssl._create_unverified_context
 
-    if os.path.exists("/home/peolivei/Cisco-SAD-DEMO-UI/src/media/meraki_capture/meraki_snapshot.jpeg"):
-        os.remove("/home/peolivei/Cisco-SAD-DEMO-UI/src/media/meraki_capture/meraki_snapshot.jpeg")
+    #if os.path.exists("/home/peolivei/Cisco-SAD-DEMO-UI/src/media/meraki_capture/meraki_snapshot.jpeg"):
+    #    os.remove("/home/peolivei/Cisco-SAD-DEMO-UI/src/media/meraki_capture/meraki_snapshot.jpeg")
 
     time.sleep(5)
     r = requests.get(url)
@@ -85,7 +85,7 @@ def detect_text():
 
     print("Detected text\n----------")
     for text in textDetections:
-        if text["Confidence"] >= 90 and text["Type"] == "LINE":
+        if text["Confidence"] >= 85 and text["Type"] == "LINE":
             print("Detected text:" + text["DetectedText"])
             print("Confidence: " + "{:.2f}".format(text["Confidence"]) + "%")
             print("Id: {}".format(text["Id"]))
