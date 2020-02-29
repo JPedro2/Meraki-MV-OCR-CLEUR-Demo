@@ -85,7 +85,7 @@ def detect_text():
 
     print("Detected text\n----------")
     for text in textDetections:
-        if text["Confidence"] >= 85 and text["Type"] == "LINE":
+        if text["Confidence"] >= 80 and text["Type"] == "LINE":
             print("Detected text:" + text["DetectedText"])
             print("Confidence: " + "{:.2f}".format(text["Confidence"]) + "%")
             print("Id: {}".format(text["Id"]))
