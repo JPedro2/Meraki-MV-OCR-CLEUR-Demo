@@ -6,6 +6,8 @@ import run_webex_capture
 import emotion_graph
 import aggregate_totals
 import fatigue_graph
+import brew_coffee
+
 
 flask_app = Flask(__name__)
 
@@ -55,6 +57,12 @@ def aggregete_total():
     result = aggregate_totals.aggregate_totals()
     return result
 
+@flask_app.route("/brew-coffee", methods=["GET"])
+def brew_coffee_demo():
+    fatigue = brew_coffee.get_fatigue_result()
+    coffee_strength = brew_coffee.strength_calc(fatigue)
+    make_coffee = brew_coffee.IFTTT_make_coffee(coffee_strength)
+    return make_coffee
 
 if __name__ == "__main__":
     flask_app.run(

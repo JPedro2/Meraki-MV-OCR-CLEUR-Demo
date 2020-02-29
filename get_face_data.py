@@ -2,19 +2,16 @@
 
 import json
 
+# read Sentimentor Data file
+with open(
+    "/home/peolivei/Cisco-SAD-DEMO-UI/src/media/sentimentor_capture/data.json", "r"
+) as data:
+    sentimentor_data = json.load(data)
 
 def face_data():
-    # read file
-    with open(
-        "/home/peolivei/Cisco-SAD-DEMO-UI/src/media/sentimentor_capture/data.json", "r"
-    ) as myfile:
-        data = myfile.read()
-    # parse file
-    obj = json.loads(data)
-
     # Get Fatigue Sentence
-    fatigue = obj.get("fatigue")
-    emotion = obj.get("emotion").lower()
+    fatigue = sentimentor_data.get("fatigue")
+    emotion = sentimentor_data.get("emotion").lower()
 
     sentence1 = ""
     sentence2 = ""
@@ -107,8 +104,7 @@ def face_data():
         elif emotion == "fear":
             sentence2 = "but fearful? Maybe have a lie down."
 
-    obj["sentence1"] = sentence1
-    obj["sentence2"] = sentence2
+    sentimentor_data["sentence1"] = sentence1
+    sentimentor_data["sentence2"] = sentence2
 
-    return obj
-    
+    return sentimentor_data
