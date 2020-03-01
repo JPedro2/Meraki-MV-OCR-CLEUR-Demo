@@ -40,7 +40,7 @@ def strength_calc(fatigue_lvl):
     else:
         strength = 'strong'
 
-    print("The fatigue level is "+str(fatigue_lvl)+" and the coffee strength is "+strength)
+    print("The fatigue level is " + str(fatigue_lvl) + " and the coffee strength is " + strength)
 
     return strength
 

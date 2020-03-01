@@ -50,7 +50,7 @@ def snapshot_meraki_camera():
 
     # Make sure that the snapshot link is accessible before downloading the picture
     while r.status_code != 200 | n<10:
-        print("Image not found and the response status code is: "+str(r.status_code)+". Trying again in 2 seconds.")
+        print("Image not found and the response status code is: " + str(r.status_code) + ". Trying again in 2 seconds.")
         time.sleep(2)
         n+=1
 
