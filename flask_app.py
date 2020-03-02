@@ -7,6 +7,7 @@ import emotion_graph
 import aggregate_totals
 import fatigue_graph
 import brew_coffee
+import WxBoard_Speak
 
 
 flask_app = Flask(__name__)
@@ -63,6 +64,14 @@ def brew_coffee_demo():
     coffee_strength = brew_coffee.strength_calc(fatigue)
     make_coffee = brew_coffee.IFTTT_make_coffee(coffee_strength)
     return make_coffee
+
+@flask_app.route("/WxBoard-Speak", methods=["GET"])
+def get_WxBoard_toSpeak():
+    raw_sentence = get_face_data.face_data()
+    full_sentence = raw_sentence["sentence1"]+raw_sentence["sentence2"]
+    clean_sentence = WxBoard_Speak.deEmojify(full_sentence)
+    WxBoard_Speak.makeWxBoardSpeak(clean_sentence)
+    return("Request Successful. The Webex Board just said: "+clean_sentence)
 
 if __name__ == "__main__":
     flask_app.run(
