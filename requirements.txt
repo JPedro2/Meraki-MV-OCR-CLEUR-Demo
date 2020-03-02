@@ -3,3 +3,4 @@ Pillow
 boto3
 Flask
 psycopg2
+xmltodict
